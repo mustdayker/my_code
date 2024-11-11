@@ -1,3 +1,41 @@
+# Соединение с помощью psycopg2
+
+import psycopg2
+import pandas as pd
+
+db_config = {'host':     'host.adress.ru', 
+             'port':     '5432',
+             'user':     'username',       
+             'password': 'password',
+             'database': 'db_name'
+}
+
+with psycopg2.connect(**db_config) as conn:
+    querry = f"""
+        SELECT *
+        FROM prd_mediatv_v_user.rep_substn_sales_oper
+        LIMIT 5
+        ;
+    """
+
+    cur = conn.cursor()
+    cur.execute(querry)
+
+    test_data = cur.fetchall()
+    headers_list = [col[0] for col in cur.description]
+
+    df = pd.DataFrame(test_data, 
+                      columns=[col[0] for col in cur.description])
+    
+    df.to_csv('test/test_querry.csv', 
+              sep=',', 
+              index=False,
+              header=True)
+
+
+
+
+
 # _______________________ test_database_con_querry_v03.py _______________________
 
 
