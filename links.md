@@ -13,3 +13,21 @@ Office/Windows              | [https://massgrave.dev/](https://massgrave.dev/)
 Описание         | Ссылка
 -----------------|-------
 Пополнение Steam | [https://payment.mts.ru/cyber/steam](https://payment.mts.ru/cyber/steam)
+
+# Photoshop drag and drop activation
+
+Зайти в редактор реестра `Regedtit`
+
+Перейти в папку:
+
+```
+HKEY_LOCAL_MACHINE
+	SOFTWARE
+		Microsoft
+			Windows
+				CurrentVersion
+					Policies
+						System
+```
+
+Выставить значчение параметра `EnableLUA` в `0`
