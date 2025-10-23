@@ -25,6 +25,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # Jupyter Notebook temp files
-.ipynb_checkpoints
+.ipynb_checkpoints/
+
+.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows
